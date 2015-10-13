@@ -3,24 +3,24 @@ extern crate points;
 
 points! {
     #[points = "1"]
-    fn first_fn() {
+    test first {
 
     }
 
     #[points = "2"]
-    mod first {
+    suite first {
         #[points = "2.1"]
-        fn second_fn() {
+        test second {
 
         }
         #[points = "2.2"]
-        fn third_fn() {
+        test third {
 
         }
     }
 
     #[points = "3"]
-    fn fourth_fn() {
+    test fourth {
 
     }
 }

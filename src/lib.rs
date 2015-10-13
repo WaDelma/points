@@ -9,13 +9,11 @@ lazy_static! {
 #[macro_export]
 macro_rules! points {
     () => {};
-    (#[points = $points:expr] mod $suite:ident { $($block:tt)* } $($tail:tt)*) => {
-        mod $suite {
-            points!(@helper $points, $suite, $($block)*);
-        }
+    (#[points = $points:expr] suite $suite:ident { $($block:tt)* } $($tail:tt)*) => {
+        points!(@helper $points, $suite, $($block)*);
         points!($($tail)*);
     };
-    (#[points = $points:expr] fn $test:ident() $code:block $($tail:tt)*) => {
+    (#[points = $points:expr] test $test:ident $code:block $($tail:tt)*) => {
         #[test]
         fn $test() {
             use std::io::Write;
