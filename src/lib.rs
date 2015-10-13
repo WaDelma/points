@@ -3,7 +3,7 @@ extern crate lazy_static;
 
 lazy_static! {
     pub static ref _FILE: ::std::sync::Mutex<::std::fs::File>
-        = ::std::sync::Mutex::new(::std::fs::File::create("tmc-files.txt").unwrap());
+        = ::std::sync::Mutex::new(::std::fs::File::create("tmc-points.txt").unwrap());
 }
 
 #[macro_export]
