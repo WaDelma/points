@@ -25,7 +25,7 @@ macro_rules! points {
     };
 
     (@helper $spoints:expr, $suite:ident,) => {};
-    (@helper $spoints:expr, $suite:ident, #[points = $points:expr] fn $test:ident() $code:block) => {
+    (@helper $spoints:expr, $suite:ident, #[points = $points:expr] test $test:ident $code:block) => {
         #[test]
         fn $test() {
             use std::io::Write;
@@ -35,7 +35,7 @@ macro_rules! points {
             $code
         }
     };
-    (@helper $spoints:expr, $suite:ident, #[points = $points:expr] fn $test:ident() $code:block $($tail:tt)*) => {
+    (@helper $spoints:expr, $suite:ident, #[points = $points:expr] test $test:ident $code:block $($tail:tt)*) => {
         #[test]
         fn $test() {
             use std::io::Write;
