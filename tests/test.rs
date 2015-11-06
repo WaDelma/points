@@ -26,4 +26,9 @@ points! {
 
         }
     }
+
+    #[points = {"5", "6"}]
+    test sixth {
+
+    }
 }

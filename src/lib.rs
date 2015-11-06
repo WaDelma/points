@@ -19,9 +19,12 @@ macro_rules! points {
             use std::io::Write;
             let mut file = $crate::_FILE.lock().unwrap();
             let test = stringify!($test);
+            let mut points = String::new();
             $(
-                write!(file, "{} = {}\n", test, $points).unwrap();
+                points.push_str($points);
+                points.push_str(" ");
             )*
+            write!(file, "{} = {}\n", test, &points[..points.len()-1]).unwrap();
             $code
         }
         points!($($tail)*);
